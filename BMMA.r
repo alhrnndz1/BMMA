@@ -213,3 +213,62 @@ BiomatOnlyJournals_addresses <- rbind(AdvHM_georef$addresses, Bioactive_georef$a
 
 #Save that list
 save(BiomatOnlyJournals_addresses, file= "/blue/anaporras/share/output_AMP/BiomatOnlyJournals_addresses.RData")
+
+
+
+
+
+
+
+
+#Completing the analysis for the other 16 Journals (Not Biomaterials-ONLY)
+
+
+
+#Installing and loading R packages
+#This part of the code installs and loads the necessary packages
+
+#First, install the packages:
+
+install.packages("devtools")
+devtools::install_github("ropensci/refsplitr")
+install.packages("rlang")
+install.packages("ggmap",force = TRUE)
+install.packages("igraph")
+install.packages("janitor")
+
+#Loading the necessary libraries:
+
+library(refsplitr)
+library(rlang)
+library(ggplot2)
+library(ggmap)
+library(rworldmap)
+library(igraph)
+library(janitor)
+library(RColorBrewer)
+
+Googlemaps key
+ggmap::register_google(key = "AIzaSyAOOLTz91HIEURDGQU-9_p3aDE2tgeQQpA", write = TRUE)
+
+
+
+
+#Extracting refs, authors, and geolocation for OOO
+
+#Read references, extract and clean author names
+OOO_refs <- references_read(data = "WoS_Results/OOO.txt", 
+                             dir=FALSE, 
+                             include_all = FALSE)
+OOO_clean <- authors_clean(OOO_refs)
+OOO_refined <- authors_refine(OOO_clean$review,
+                                    TEng_clean$prelim)
+
+#Georeference author names
+OOO_georef <- authors_georef(data=OOO_refined,address_column = "address")
+
+#Save outputs
+write.csv(OOO_refined, "/outputs/OOO_refined_refined.csv")
+
+save(OOO_refined, file ="/outputs/OOO_refined.RData")
+
