@@ -1,5 +1,31 @@
 #Completing meta-analysis for the other 16 Journals (Not Biomaterials-Only)
 
+#Installing and loading R packages
+#This part of the code installs and loads the necessary packages
+
+#First, install the packages:
+
+install.packages("devtools")
+devtools::install_github("ropensci/refsplitr")
+install.packages("rlang")
+install.packages("ggmap",force = TRUE)
+install.packages("igraph")
+install.packages("janitor")
+
+#Loading the necessary libraries:
+
+library(refsplitr)
+library(rlang)
+library(ggplot2)
+library(ggmap)
+library(rworldmap)
+library(igraph)
+library(janitor)
+library(RColorBrewer)
+
+Googlemaps key
+ggmap::register_google(key = "AIzaSyAOOLTz91HIEURDGQU-9_p3aDE2tgeQQpA", write = TRUE)
+
 #Extracting refs, authors, and geolocation for 1 EnergyChem
 
 #Read references, extract and clean author names
