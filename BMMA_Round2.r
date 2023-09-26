@@ -193,6 +193,35 @@ write.csv(EngSciTechIntlJour_refined, "/blue/anaporras/share/new_outputs/EngSciT
 save(EngSciTechIntlJour_refined, file ="/blue/anaporras/share/new_outputs/EngSciTechIntlJour_refined.RData")
 save(EngSciTechIntlJour_georef, file ="/blue/anaporras/share/new_outputs/EngSciTechIntlJour_georef.RData")
 
+# Extracting refs, authors, and geolocation for 11 Journal of Science Advanced Materials and Devices
+ 
+# Read references, extract and clean author names
+JourSciAdvMatDevices_refs <- references_read(data = "/blue/anaporras/share/WoS_Results/Journal of Science Advanced Materials and Devices.txt", dir=FALSE, include_all = FALSE)
+JourSciAdvMatDevices_clean <- authors_clean(JourSciAdvMatDevices_refs)
+JourSciAdvMatDevices_refined <- authors_refine(JourSciAdvMatDevices_clean$review, JourSciAdvMatDevices_clean$prelim)
+
+# Georeference author names
+JourSciAdvMatDevices_georef <- authors_georef(data=JourSciAdvMatDevices_refined, address_column = "address")
+
+# Save outputs
+write.csv(JourSciAdvMatDevices_refined, "/blue/anaporras/share/new_outputs/JourSciAdvMatDevices_refined.csv")
+save(JourSciAdvMatDevices_refined, file ="/blue/anaporras/share/new_outputs/JourSciAdvMatDevices_refined.RData")
+save(JourSciAdvMatDevices_georef, file ="/blue/anaporras/share/new_outputs/JourSciAdvMatDevices_georef.RData")
+
+# Extracting refs, authors, and geolocation for 12 Current Opinion in Biomedical Engineering
+ 
+# Read references, extract and clean author names
+CurrOpinBiomedEng_refs <- references_read(data = "/blue/anaporras/share/WoS_Results/Current Opinion in Biomedical Engineering.txt", dir=FALSE, include_all = FALSE)
+CurrOpinBiomedEng_clean <- authors_clean(CurrOpinBiomedEng_refs)
+CurrOpinBiomedEng_refined <- authors_refine(CurrOpinBiomedEng_clean$review, CurrOpinBiomedEng_clean$prelim)
+
+# Georeference author names
+CurrOpinBiomedEng_georef <- authors_georef(data=CurrOpinBiomedEng_refined, address_column = "address")
+
+# Save outputs
+write.csv(CurrOpinBiomedEng_refined, "/blue/anaporras/share/new_outputs/CurrOpinBiomedEng_refined.csv")
+save(CurrOpinBiomedEng_refined, file ="/blue/anaporras/share/new_outputs/CurrOpinBiomedEng_refined.RData")
+save(CurrOpinBiomedEng_georef, file ="/blue/anaporras/share/new_outputs/CurrOpinBiomedEng_georef.RData")
 
 #Extracting refs, authors, and geolocation for 13 Small
 
