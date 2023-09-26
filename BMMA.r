@@ -22,7 +22,7 @@ library(janitor)
 library(RColorBrewer)
 
 
-Googlemaps key
+#Googlemaps key
 
 ggmap::register_google(key = "AIzaSyAOOLTz91HIEURDGQU-9_p3aDE2tgeQQpA", write = TRUE)
 
