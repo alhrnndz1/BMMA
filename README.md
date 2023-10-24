@@ -1,6 +1,8 @@
 # BMMA
 # Description:
 This repository contains code and datasets used in the meta-analysis of global participation in biomaterials journals. The project aims to analyze participation trends, highlight key contributions, and offer insights into global representation in the field both in co-authorship networks and editorial boards.
+References:
+Fournier, A. M. V., Boone, M. E., Stevens, F. R., & Bruna, E. M. (2022). refsplitr script. Retrieved from https://docs.ropensci.org/refsplitr/articles/refsplitr.html.
 
 # Features:
 **Data Extraction:** Using the refsplitr package to read references and extract author details.  
