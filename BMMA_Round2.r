@@ -23,8 +23,8 @@ library(igraph)
 library(janitor)
 library(RColorBrewer)
 
-Googlemaps key
-ggmap::register_google(key = "AIzaSyAOOLTz91HIEURDGQU-9_p3aDE2tgeQQpA", write = TRUE)
+#Setting the working directory Copy and paste this command into the Console
+setwd("/blue/anaporras/a.hernandez4")
 
 #Extracting refs, authors, and geolocation for 1 EnergyChem
 
